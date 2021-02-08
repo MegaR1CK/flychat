@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "333873827426",
+    "project_id": "flychat-ef44a",
+    "storage_bucket": "flychat-ef44a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:333873827426:android:bd65d26c14de35e99f8b3b",
+        "android_client_info": {
+          "package_name": "com.hfad.flychat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "333873827426-u61lvp3a5f303g2m4g0di3oksvf8p6ii.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBK42-QOaekax1bNm0EdEQbiPrAwLBid6E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "333873827426-u61lvp3a5f303g2m4g0di3oksvf8p6ii.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

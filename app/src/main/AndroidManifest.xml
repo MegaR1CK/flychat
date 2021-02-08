@@ -9,7 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FlyChat">
-        <activity android:name=".MainActivity">
+        <activity android:name=".HomeActivity"></activity>
+        <activity
+            android:name=".RegisterActivity"
+            android:theme="@style/Theme.FlyChat.NoActionBar" />
+        <activity
+            android:name=".LoginActivity"
+            android:theme="@style/Theme.FlyChat.NoActionBar" />
+        <activity
+            android:name=".MainActivity"
+            android:theme="@style/Theme.FlyChat.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
