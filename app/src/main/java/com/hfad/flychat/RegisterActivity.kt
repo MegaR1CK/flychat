@@ -6,10 +6,10 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.auth.ktx.userProfileChangeRequest
 import com.google.firebase.ktx.Firebase
 import com.google.firebase.storage.FirebaseStorage
 import kotlinx.android.synthetic.main.activity_register.*
+import kotlinx.coroutines.runBlocking
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -18,9 +18,11 @@ class RegisterActivity : AppCompatActivity() {
         setContentView(R.layout.activity_register)
 
         lateinit var defaultAvatar: Uri
-        val ref = FirebaseStorage.getInstance().reference.child("default_avatar.jpg")
-        ref.downloadUrl.addOnSuccessListener {
-            defaultAvatar = it
+        val avatar = FirebaseStorage.getInstance().reference.child("default_avatar.jpg")
+        runBlocking {
+            avatar.downloadUrl.addOnSuccessListener {
+                defaultAvatar = it
+            }
         }
 
         btn_register.setOnClickListener {
@@ -33,9 +35,19 @@ class RegisterActivity : AppCompatActivity() {
                 if (password == confPassword) {
                     Firebase.auth.createUserWithEmailAndPassword(email, password)
                         .addOnSuccessListener {
-                            val intent = Intent(this, HomeActivity::class.java)
-                            intent.putExtra(HomeActivity.NAME_KEY, name)
-                            startActivity(intent)
+                            val user = Firebase.auth.currentUser
+                            val update = UserProfileChangeRequest.Builder()
+                                .setDisplayName(name)
+                                .setPhotoUri(defaultAvatar)
+                                .build()
+                            user?.updateProfile(update)
+                                ?.addOnSuccessListener {
+                                    startActivity(Intent(this,
+                                        ChatActivity::class.java))
+                                }
+                                ?.addOnFailureListener {
+                                    it.message?.let { it1 -> App.errorAlert(it1, this) }
+                                }
                         }
                         .addOnFailureListener {
                             it.message?.let { it1 -> App.errorAlert(it1, this) }

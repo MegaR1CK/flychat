@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FlyChat">
-        <activity android:name=".HomeActivity"></activity>
+
+        <activity android:name=".ChatActivity"
+            android:theme="@style/Theme.FlyChat.NoActionBar"/>
         <activity
             android:name=".RegisterActivity"
             android:theme="@style/Theme.FlyChat.NoActionBar" />

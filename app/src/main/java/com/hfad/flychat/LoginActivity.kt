@@ -18,8 +18,10 @@ class LoginActivity : AppCompatActivity() {
         auth = Firebase.auth
 
         if (auth.currentUser != null) {
-            startActivity(Intent(this, HomeActivity::class.java))
+            startActivity(Intent(this, ChatActivity::class.java))
+            App.WAS_AUTH = true
         }
+        else App.WAS_AUTH = false
 
         btn_login.setOnClickListener {
             val email = field_email.text.toString()
@@ -27,7 +29,7 @@ class LoginActivity : AppCompatActivity() {
             if (email.isNotBlank() && password.isNotBlank()) {
                 auth.signInWithEmailAndPassword(email, password)
                     .addOnSuccessListener {
-                        startActivity(Intent(this, HomeActivity::class.java))
+                        startActivity(Intent(this, ChatActivity::class.java))
                     }
                     .addOnFailureListener {
                         it.message?.let { it1 -> App.errorAlert(it1, this) }

@@ -11,7 +11,5 @@
     <string name="name_hint">Отображаемое имя</string>
     <string name="have_account">У меня уже есть аккаунт</string>
     <string name="error_password_confirm">Пароли должны совпадать!</string>
-    <string name="default_avatar">
-        https://firebasestorage.googleapis.com/v0/b/flychat-ef44a.appspot.com/o/default_avatar.jpg?alt=media&amp;token=28f3e58c-9d87-40c2-8010-3ce9f9e0989a
-    </string>
+    <string name="logout">Выход</string>
 </resources>
