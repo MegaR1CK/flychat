@@ -9,7 +9,7 @@ class App : Application() {
     companion object {
 
         var WAS_AUTH = false
-
+//dsfds
         fun errorAlert(mes: String, context: Context) {
             AlertDialog.Builder(context)
                 .setTitle(R.string.error_title)
